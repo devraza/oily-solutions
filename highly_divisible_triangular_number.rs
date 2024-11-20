@@ -14,7 +14,7 @@ pub fn factors(num: u64) -> Vec<u64> {
 fn main() {
     let mut triangular_increment: u64 = 0;
     let mut triangular: u64 = 0;
-   
+
     while factors(triangular).len() <= 500 {
         triangular = 0;
         for i in 1..=triangular_increment {

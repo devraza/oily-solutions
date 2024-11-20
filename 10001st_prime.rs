@@ -26,5 +26,5 @@ fn main() {
         increment += 1;
     }
 
-    println!("{:?}", primes[primes.len()-1]);
+    println!("{:?}", primes[primes.len() - 1]);
 }
