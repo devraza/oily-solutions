@@ -1,11 +1,18 @@
 fn is_prime(num: u64) -> bool {
     let prime: bool = true;
-    for i in 2..=((num as f64).sqrt() as u64) {
-        if num % i == 0 {
-            return false;
+    match num {
+        0..=1 => false,
+        2 => true,
+        num if num % 2 == 0 => false,
+        _ => {
+            for i in (3..=((num as f64).sqrt() as u64)).step_by(2) {
+                if num % i == 0 {
+                    return false;
+                }
+            }
+            prime
         }
     }
-    prime
 }
 
 fn main() {
@@ -19,5 +26,5 @@ fn main() {
         increment += 1;
     }
 
-    println!("{:?}", primes);
+    println!("{:?}", primes[primes.len()-1]);
 }
