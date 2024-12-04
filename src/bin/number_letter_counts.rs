@@ -39,9 +39,9 @@ fn translate(number: u64) -> String {
 
     match number {
         number if number < 20 => { result = GENERIC[(number) as usize].to_string(); },
-        number if number >= 20 && number < 100 => {
+        number if (20..100).contains(&number) => {
             let number_string = number.to_string();
-            let tens = number_string.chars().nth(0).unwrap().to_digit(10).unwrap();
+            let tens = number_string.chars().next().unwrap().to_digit(10).unwrap();
             let ones = number_string.chars().nth(1).unwrap().to_digit(10).unwrap();
 
             result = SPECIAL[tens as usize].to_owned()+GENERIC[(ones) as usize];
@@ -49,7 +49,7 @@ fn translate(number: u64) -> String {
         100 => { result = "onehundred".to_string(); }
         number if number > 100 && number < 1000 => {
             let number_string = number.to_string();
-            let hundreds = number_string.chars().nth(0).unwrap().to_digit(10).unwrap();
+            let hundreds = number_string.chars().next().unwrap().to_digit(10).unwrap();
             let tens = number_string.chars().nth(1).unwrap().to_digit(10).unwrap();
             let ones = number_string.chars().nth(2).unwrap().to_digit(10).unwrap();
 

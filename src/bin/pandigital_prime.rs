@@ -17,7 +17,7 @@ fn is_prime(num: u64) -> bool {
     }
 }
 
-fn permutations(input: &Vec<u64>) -> Vec<u64> {
+fn permutations(input: &[u64]) -> Vec<u64> {
     let mut permutations = vec![];
     for permutation in input.iter().permutations(input.len()).unique() {
         let result: u64 = permutation.iter().fold(0, |acc, &x| acc * 10u64.pow(x.to_string().len() as u32) + x);

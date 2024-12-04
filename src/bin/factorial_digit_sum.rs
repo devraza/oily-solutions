@@ -1,11 +1,11 @@
 use num_bigint::BigUint;
 
 fn factorial(x: u64) -> BigUint {
-    let mut product = BigUint::from(1 as u64);
+    let mut product = BigUint::from(1_u64);
     for i in 2..=x {
         product *= BigUint::from(i);
     }
-    product.into()
+    product
 }
 
 fn main() {

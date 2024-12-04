@@ -17,7 +17,7 @@ fn is_prime(num: u64) -> bool {
     }
 }
 
-fn permutations(input: &Vec<u64>) -> Vec<u64> {
+fn permutations(input: &[u64]) -> Vec<u64> {
     let mut permutations = vec![];
     for permutation in input.iter().permutations(input.len()).unique() {
         let result: u64 = permutation.iter().fold(0, |acc, &x| acc * 10u64.pow(x.to_string().len() as u32) + x);
@@ -58,7 +58,7 @@ fn main() {
 
             for k in prime_permutations.clone().into_iter().filter(|x| *x != *j).collect::<Vec<u64>>() {
                 if (*j as i64-i as i64).abs() == (k as i64-i as i64).abs() {
-                    let difference = (*j as i64-i as i64).abs() as u64;
+                    let difference = (*j as i64 - i as i64).unsigned_abs();
                     let final_vector: Vec<u64> = vec![i-difference, i, i+difference];
 
                     let concat = final_vector.into_iter().map(|s| s.to_string()).collect::<String>();

@@ -1,9 +1,7 @@
 fn check_prime(x: u32) -> bool {
     let mut check = true;
-    for j in 2..=(x as u32).isqrt() {
-        if x % 2 == 0 {
-            check = false;
-        } else if x % j == 0 {
+    for j in 2..=x.isqrt() {
+        if x % j == 0 {
             check = false;
         }
     }
