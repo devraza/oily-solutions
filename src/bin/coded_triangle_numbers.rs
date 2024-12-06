@@ -8,8 +8,11 @@ fn main() {
         characters.push(c);
     }
     
-    let contents = fs::read_to_string("assets/input")
+    let mut contents = fs::read_to_string("assets/input")
         .expect("Could not read the input file").replace("\"\n", "");
+    if contents.len() > 0 {
+        contents.remove(0);
+    }
     let words = contents.split("\",\"").collect::<Vec<&str>>();
 
     let mut triangles = 0;
