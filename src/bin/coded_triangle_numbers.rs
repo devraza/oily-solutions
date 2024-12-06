@@ -10,7 +10,7 @@ fn main() {
     
     let mut contents = fs::read_to_string("assets/input")
         .expect("Could not read the input file").replace("\"\n", "");
-    if contents.len() > 0 {
+    if !contents.is_empty() {
         contents.remove(0);
     }
     let words = contents.split("\",\"").collect::<Vec<&str>>();
@@ -23,7 +23,7 @@ fn main() {
             total_index += index;
         }
 
-        let position: f64 = ((-1 as f64)+(((1+8*total_index) as f64).sqrt() as f64))/2.;
+        let position: f64 = (-1_f64+((1+8*total_index) as f64).sqrt())/2.;
         if position.fract() == 0. {
             triangles += 1;
         }
